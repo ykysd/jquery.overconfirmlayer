@@ -1,0 +1,21 @@
+.jqoverconfirmlay_close_button{
+  font-weight : bold;
+  font-size : 150%;
+  color : red;
+  cursor : pointer;
+  padding : 5px 15px 5px 5px;
+  position : absolute;
+  top : 0;
+  right : 0;
+}
+.jqoverconfirmlay_confirmlay{
+  min-width : 300px;
+  background-color : white;
+  position : absolute;
+  text-align : left;
+  border-color : skyblue;
+  border-style : solid;
+  border-width : 1.5em 1px 1px 1px;
+  padding : 1em;
+  box-sizing: border-box;
+}

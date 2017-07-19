@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<title>jquery.overconfirmlayer demo</title>
+<style type="text/css">
+html, body{
+  padding:0;
+  margin:0;
+}
+</style>
+<link href="./jquery.overconfirmlayer.css" rel="stylesheet" type="text/css" />
+<script src="./jquery-3.2.1.js"></script>
+<script src="./jquery.overconfirmlayer.js"></script>
+
+<script type="text/javascript">
+
+$( window ).on( "load" , function(){
+
+  $( "#btn" ).on( "click" , function(){
+    $( "body" ).overconfirmlay({
+      "id" : "testid2",
+      "overlayoptions" : {
+        "isCloseBtn" : false
+      },
+      "yesfunction" : function(){
+        $( "body" ).overlayclose("testid2");
+      }
+    });
+  });
+
+  $( "#btn_confirmclose" ).on( "click" , function(){
+    $( "body" ).overconfirmlay({
+      "id" : "hand_named_id_for_confirm",
+      "overlayoptions" : {
+        "id" : "hand_named_id_for_overlay",
+        "isCloseBtn" : false
+      },
+      "yesVal" : "閉じる",
+      "yesfunction" : function(){
+        $( "body" ).overlayclose( "xxxa" );
+      },
+      "noflg" : false
+    });
+  });
+
+
+  $( "#btn_overlay" ).on( "click" , function(){
+    $( "body" ).overlay({
+      "id" : "testid3",
+      "isCloseBtn" : true
+    });
+  });
+
+
+  $( "#btn_overconfirmlay" ).on( "click" , function(){
+    $( "#footerContainer" ).overconfirmlay({
+      "id" : "testid4",
+      "overlayoptions" : {
+        "background-color" : "#00FF00",
+        "css" : {
+          "position" : "absolute",    // 特定のエレメント
+        },
+        "isCloseBtn" : true
+      }
+    });
+  });;
+
+  $( "#btn_overwaitboxlay" ).on( "click" , function(){
+    $( "body" ).overwaitboxlay({
+      "id" : "testid5",
+      "overlayoptions" : {
+        "isCloseBtn" : false,
+        "background-color" : "rgb( 255 , 120 , 0 )",
+      }
+    });
+    // 3秒後に
+    setTimeout( function(){
+     $( "body" ).overlayclose();
+     } , 1000
+    );
+  });
+
+  $( "#btn_nonoption_overlay" ).on( "click" , function(){
+    $( "body" ).overlay();
+  });
+
+  $( "#btn_nonoption_overconfirmlay" ).on( "click" , function(){
+    $( "body" ).overconfirmlay();
+  });
+
+});
+</script>
+</head>
+<body>
+  <button id="btn">overconfirmlay</button>
+  <button id="btn_confirmclose">overconfirmlay</button>
+  <button id="btn_overlay">overlay全体</button>
+  <button id="btn_overconfirmlay">overlay特定のエレメント</button>
+  <button id="btn_overwaitboxlay">overwaitboxlay</button>
+  <button id="btn_nonoption_overlay">nonoption_overlay</button>
+  <button id="btn_nonoption_overconfirmlay">nonoption_overconfirmlay</button>
+  <div id="footerContainer" style="position:fixed;bottom:0;width: 100%;height:5em;background-color:skyblue;"></div>
+</body>
+</html>
